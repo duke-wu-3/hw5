@@ -1,0 +1,113 @@
+{
+  "run": "Problem 9 full run on a freshly reset data/campus_customs_new.db",
+  "model": "gpt-6-luna",
+  "shop_date": "2026-08-31",
+  "reset_at": "2026-10-10T02:06:32Z",
+  "starting_checking_balance": 3400.0,
+  "ending_checking_balance": 152.0,
+  "total_paid": 3248.0,
+  "all_resolved_in_db": true,
+  "tickets": [
+    {
+      "ticket_id": 101,
+      "subject": "Bulldog tee (customer order, Tauhid Zaman, 1 x CC-TEE-WHITE size S)",
+      "run_ids": [
+        "608be2f92767",
+        "d2852bdfa3ad"
+      ],
+      "final_status": "resolved",
+      "outcome": "0 in stock. Invoice 501 ($840) was paid to unblock Bulldog Print Co and a 1-tee reprint PO ($8) was approved. The tee is expected 2026-09-05. Customer Service's final draft tells Tauhid that date without quoting a price.",
+      "agents": {
+        "boss": "Routed to Inventory, Accounting and Customer Service. On the re-run it read the approval notes, confirmed nothing was left for the team, and marked the ticket resolved.",
+        "inventory": "Found 0 on hand and matched Bulldog Print Co as the supplier. Flagged invoice 501 as blocking shipment and quoted $8 / 5 days (2026-09-05).",
+        "accounting": "Built the shared-cash queue: rent $2,400 (P1), invoice 501 $840 (P2), tee PO $8 (P3, only after 501), leaving $152. On the re-run it confirmed both payments landed and that rent doesn't block #101.",
+        "customer_service": "Drafted the reply with no promises. On the re-run it confirmed 501 was paid (get_vendor_invoices) and rewrote the draft with the Sept 5 expected arrival.",
+        "facilities": "Not called."
+      },
+      "human_approvals": [
+        {
+          "type": "payment",
+          "payment_id": 1,
+          "kind": "invoice",
+          "ref_id": 501,
+          "payee": "Bulldog Print Co",
+          "amount": 840.0,
+          "approved_by": "Duke Wu",
+          "at": "2026-10-10T02:08:16Z",
+          "balance_after": 2560.0
+        },
+        {
+          "type": "payment",
+          "payment_id": 2,
+          "kind": "purchase_order",
+          "ref_id": 1,
+          "payee": "Bulldog Print Co",
+          "amount": 8.0,
+          "approved_by": "Duke Wu",
+          "at": "2026-10-10T02:08:21Z",
+          "balance_after": 2552.0
+        }
+      ]
+    },
+    {
+      "ticket_id": 102,
+      "subject": "Rent due (rent notice, Elm City Properties, lease 1)",
+      "run_ids": [
+        "09f57b480529"
+      ],
+      "final_status": "resolved",
+      "outcome": "Lease 1 rent of $2,400 (due 2026-09-02) was paid. The next due date moved to 2026-10-02, and the approval closed the ticket.",
+      "agents": {
+        "boss": "Routed to Facilities, then Accounting, and set the ticket to awaiting_approval until the rent was signed.",
+        "facilities": "Confirmed $2,400 due 2026-09-02 against $2,552 in checking.",
+        "accounting": "Queued one priority-1 rent payment, leaving $152.",
+        "inventory": "Not called.",
+        "customer_service": "Not called."
+      },
+      "human_approvals": [
+        {
+          "type": "payment",
+          "payment_id": 3,
+          "kind": "rent",
+          "ref_id": 1,
+          "payee": "Elm City Properties",
+          "amount": 2400.0,
+          "approved_by": "Duke Wu",
+          "at": "2026-10-10T02:10:41Z",
+          "balance_after": 152.0
+        }
+      ]
+    },
+    {
+      "ticket_id": 103,
+      "subject": "Bulk hoodie discount (price override, Yale AI Club, 20 x CC-HOOD-NAVY size M)",
+      "run_ids": [
+        "483b698574a7",
+        "6fefcf2feed7"
+      ],
+      "final_status": "resolved",
+      "outcome": "The owner approved a 10% group rate: $52.20 each, $1,044 for 20, $604.00 margin. 8 are on hand. The $264 restock of the other 12 is deferred because it is $112 more than the $152 left. The final draft quotes the approved rate and promises no date for the 12.",
+      "agents": {
+        "boss": "Routed to Inventory, Accounting and Customer Service and put the rate on the board for signature. On the re-run it saw the owner's approval note and marked the ticket resolved.",
+        "inventory": "Found 8 on hand, 12 short. Quoted 12 from Bulldog Print Co at $264 / 5 days.",
+        "accounting": "Tested 10% and 15% with check_discount and recommended 10%. Deferred the $264 PO ($112 short) and queued no payment. On the re-run it confirmed cash was still $152.",
+        "customer_service": "First draft said the rate was pending. The final draft quotes the approved $52.20 / $1,044 with no promise on the remaining 12.",
+        "facilities": "Not called."
+      },
+      "human_approvals": [
+        {
+          "type": "rate",
+          "sku": "CC-HOOD-NAVY",
+          "qty": 20,
+          "discount_pct": 10,
+          "unit_price": 52.2,
+          "order_total": 1044.0,
+          "order_margin": 604.0,
+          "approved_by": "Duke Wu",
+          "at": "2026-10-10T02:12:06Z",
+          "cash_moved": 0
+        }
+      ]
+    }
+  ]
+}

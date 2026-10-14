@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Campus Customs Resolved Board</title>
+<style>
+  :root { --navy: #0f2d52; --ink: #1d232b; --muted: #5d6773; --line: #d9dee5; --bg: #f6f7f9; --accent: #2f6fb5; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+  header { background: var(--navy); color: #fff; padding: 20px 32px; }
+  header h1 { margin: 0; font-size: 22px; }
+  header p { margin: 4px 0 0; opacity: .8; font-size: 13px; }
+  main { max-width: 1240px; margin: 24px auto; padding: 0 24px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 20px 24px; margin-bottom: 22px; }
+  .card h2 { margin: 0 0 4px; font-size: 18px; }
+  .meta { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+  .stamp { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; background: #e6f4ea; color: #1e6b3a; margin-left: 8px; vertical-align: middle; }
+  img { width: 100%; border: 1px solid var(--line); border-radius: 6px; display: block; }
+  .totals { display: flex; gap: 32px; flex-wrap: wrap; font-size: 14px; }
+  .totals b { font-size: 20px; display: block; font-variant-numeric: tabular-nums; }
+  code { font: 13px Menlo, monospace; background: #f0f2f5; padding: 1px 5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Campus Customs Resolved Board</h1>
+  <p>Problem 9: screenshots of the React dashboard (<code>frontend/</code>, http://localhost:5173) after the full run on a freshly reset database. Shop date 2026-08-31.</p>
+</header>
+<main>
+  <div class="card">
+    <h2>Run at a glance</h2>
+    <div class="totals">
+      <div>Starting checking<b>$3,400.00</b></div>
+      <div>Paid (3 payments + 1 rate, all signed)<b>−$3,248.00</b></div>
+      <div>Ending checking<b>$152.00</b></div>
+      <div>Resolved in DB and on board<b>3 / 3</b></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>#101 Bulldog tee <span class="stamp">Resolved</span></h2>
+    <p class="meta">Runs 608be2f92767 → signed → d2852bdfa3ad · Inventory, Accounting, Customer Service · Approved: invoice 501 $840 and tee PO $8 to Bulldog Print Co</p>
+    <img src="board_shots/ticket_101.png" alt="Dashboard with ticket 101 selected, resolved">
+  </div>
+
+  <div class="card">
+    <h2>#102 Rent due <span class="stamp">Resolved</span></h2>
+    <p class="meta">Run 09f57b480529 · Facilities, Accounting · Approved: rent $2,400 to Elm City Properties (lease next due 2026-10-02)</p>
+    <img src="board_shots/ticket_102.png" alt="Dashboard with ticket 102 selected, resolved">
+  </div>
+
+  <div class="card">
+    <h2>#103 Bulk hoodie discount <span class="stamp">Resolved</span></h2>
+    <p class="meta">Runs 483b698574a7 → rate signed → 6fefcf2feed7 · Inventory, Accounting, Customer Service · Owner approved 10% rate ($52.20 each); no payment, $264 restock deferred (over the $152 balance)</p>
+    <img src="board_shots/ticket_103.png" alt="Dashboard with ticket 103 selected, resolved">
+  </div>
+</main>
+</body>
+</html>
